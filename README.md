@@ -1,10 +1,10 @@
 # PlasicDocs Blog
-
+![PlasicDocs Preview](./preview.png)
 <div align="center">
 
-![Laravel](https://img.shields.io/badge/Laravel-12-red?style=for-the-badge&logo=laravel)
-![PHP](https://img.shields.io/badge/PHP-8.2-blue?style=for-the-badge&logo=php)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-38BDF8?style=for-the-badge&logo=tailwindcss)
+![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.3+-blue?style=for-the-badge&logo=php)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0+-38BDF8?style=for-the-badge&logo=tailwindcss)
 ![Vite](https://img.shields.io/badge/Vite-Build_Tool-646CFF?style=for-the-badge&logo=vite)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql)
 
@@ -60,6 +60,7 @@ The platform is suitable for:
 - Author information
 - Blog categories
 - Related posts section
+- Related tags section
 
 ---
 
@@ -73,6 +74,7 @@ The platform is suitable for:
 - Mobile Development
 - Robotics
 - DevOps
+- etc
 
 ---
 
@@ -104,6 +106,7 @@ The platform is suitable for:
 ## 🎨 UI/UX Features
 
 - Fully Responsive Design
+- Pixel Perfect Design
 - Tailwind CSS Styling
 - Modern Card Layout
 - Smooth Hover Effects
@@ -116,12 +119,12 @@ The platform is suitable for:
 
 | Technology | Version |
 |------------|----------|
-| PHP | 8.2+ |
-| Laravel | 12 |
+| PHP | 8.3+ |
+| Laravel | 13 |
 | Blade | Latest |
-| Tailwind CSS | 4 |
+| Tailwind CSS | 4.0+ |
 | Vite | Latest |
-| MySQL | 8+ |
+| MySQL | 8.2+ |
 | Node.js | 18+ |
 
 ---
@@ -158,7 +161,7 @@ Before installing this project, make sure your system has the following installe
 
 ## Required Software
 
-- PHP >= 8.2
+- PHP >= 8.3
 - Composer
 - Node.js >= 18
 - NPM
@@ -169,15 +172,15 @@ Before installing this project, make sure your system has the following installe
 
 # 🚀 Full Installation Guide
 
-# Step 1 — Clone The Repository
+## Step 1 — Clone The Repository
 
 ```bash
-git clone https://github.com/your-username/plasicdocs-blog.git
+git clone https://github.com/mokaddesdev/plasicdocs-blog.git
 ```
 
 ---
 
-# Step 2 — Enter Project Directory
+## Step 2 — Enter Project Directory
 
 ```bash
 cd plasicdocs-blog
@@ -185,7 +188,7 @@ cd plasicdocs-blog
 
 ---
 
-# Step 3 — Install PHP Dependencies
+## Step 3 — Install PHP Dependencies
 
 ```bash
 composer install
@@ -193,7 +196,7 @@ composer install
 
 ---
 
-# Step 4 — Install Node Modules
+## Step 4 — Install Node Modules
 
 ```bash
 npm install
@@ -201,7 +204,7 @@ npm install
 
 ---
 
-# Step 5 — Create Environment File
+## Step 5 — Create Environment File
 
 ```bash
 cp .env.example .env
@@ -209,7 +212,7 @@ cp .env.example .env
 
 ---
 
-# Step 6 — Generate Application Key
+## Step 6 — Generate Application Key
 
 ```bash
 php artisan key:generate
@@ -217,7 +220,7 @@ php artisan key:generate
 
 ---
 
-# Step 7 — Create Database
+## Step 7 — Create Database
 
 Create a new MySQL database.
 
@@ -236,7 +239,7 @@ You can create the database using:
 
 ---
 
-# Step 8 — Configure Environment Variables
+## Step 8 — Configure Environment Variables
 
 Open the `.env` file and update the database configuration.
 
@@ -261,7 +264,7 @@ SESSION_DRIVER=database
 
 ---
 
-# Step 9 — Run Database Migration
+## Step 9 — Run Database Migration
 
 ```bash
 php artisan migrate
@@ -269,7 +272,7 @@ php artisan migrate
 
 ---
 
-# Step 10 — Run Database Seeder (Optional)
+## Step 10 — Run Database Seeder
 
 ```bash
 php artisan db:seed
@@ -283,7 +286,7 @@ This project uses Tailwind CSS with Vite.
 
 ---
 
-# Install Tailwind CSS
+## Install Tailwind CSS
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
@@ -291,7 +294,7 @@ npm install -D tailwindcss @tailwindcss/vite
 
 ---
 
-# Configure Vite
+## Configure Vite
 
 Update your `vite.config.js`
 
@@ -302,18 +305,26 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
-        laravel([
-            'resources/css/app.css',
-            'resources/js/app.js',
-        ]),
+        laravel({
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+            ],
+            refresh: true,
+        }),
         tailwindcss(),
     ],
+    server: {
+        watch: {
+            ignored: ['**/storage/framework/views/**'],
+        },
+    },
 });
 ```
 
 ---
 
-# Configure CSS File
+## Configure CSS File
 
 Update `resources/css/app.css`
 
@@ -323,7 +334,7 @@ Update `resources/css/app.css`
 
 ---
 
-# Add Vite In Blade Layout
+## Add Vite In Blade Layout
 
 Inside your Blade layout file:
 
@@ -335,7 +346,7 @@ Inside your Blade layout file:
 
 # ▶️ Running The Project
 
-# Run Laravel Development Server
+## Run Laravel Development Server
 
 ```bash
 php artisan serve
@@ -349,7 +360,7 @@ http://127.0.0.1:8000
 
 ---
 
-# Run Vite Development Server
+## Run Vite Development Server
 
 ```bash
 npm run dev
@@ -439,19 +450,6 @@ The homepage includes:
 - Cybersecurity
 - Cloud Computing
 - React.js
-
----
-
-# 👥 Team Members
-
-- Md. Nayemur — AI Specialist
-- Rabbi Hossain — ML Engineer
-- Maruf Hossain — Rust Developer
-- Naznin Bristy — UI/UX Designer
-- Sultana Rabea — Data Scientist
-- Nasir Hossain — Cloud Architect
-
----
 
 # 📱 Responsive Design
 
@@ -554,9 +552,9 @@ This project is licensed under the MIT License.
 
 Developed by:
 
-## Md. Nayemur Rahman
+## Mokaddes Ali
 
-Technology Enthusiast & Laravel Developer
+WordPress, Shopify & Laravel Developer
 
 ---
 
@@ -564,13 +562,18 @@ Technology Enthusiast & Laravel Developer
 
 ## Email
 
-hello@plasicdocs.com
+mokaddes.ru2000@gmail.com
 
 ---
 
+## WhatsApp
+
++880 1402967304
+
+---
 ## Location
 
-Dhaka, Bangladesh
+Rajshahi, Bangladesh
 
 ---
 
