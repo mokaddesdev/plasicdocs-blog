@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('author_name', 255)->nullable();
             $table->string('author_email', 255)->nullable();
             $table->text('content');
-            $table->boolean('is_approve')->default(false);
+            $table->boolean('is_approved')->default(false);
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->timestamps();
