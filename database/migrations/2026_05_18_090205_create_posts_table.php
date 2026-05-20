@@ -20,8 +20,17 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_editors_choice')->default(false);
             $table->string('slug', 255)->unique();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->cascadeOnDelete();
+            $table->foreignId('category_id')
+                  ->nullable()
+                  ->constrained()
+                  ->nullOnDelete();
+            // $table->foreignId('category_id')
+            //       ->constrained()
+            //       ->onUpdate('cascade')
+            //       ->onDelete('cascade');
             $table->enum('status', ['draft', 'published', 'archive'])->default('draft');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

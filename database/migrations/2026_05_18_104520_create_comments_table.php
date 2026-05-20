@@ -27,6 +27,7 @@ return new class extends Migration
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
             $table->string('author_name', 255)->nullable();
+            // $table->string('author_email', 255)->unique()->nullable();
             $table->string('author_email', 255)->nullable();
             $table->text('content');
             $table->boolean('is_approved')->default(false);

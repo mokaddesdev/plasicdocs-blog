@@ -17,7 +17,7 @@ return new class extends Migration
                   ->constrained('posts')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->string('ip_address', 45);
+            $table->string('ip_address', 45)->unique();
             $table->text('user_agent')->nullable();
             $table->foreignId('user_id')
                   ->constrained('users')
