@@ -19,4 +19,9 @@ class PostView extends Model
             'viewed_at' => 'datetime'
         ];
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

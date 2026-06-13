@@ -38,4 +38,9 @@ class User extends Authenticatable
     public function comment() {
         return $this->hasMany(Comment::class);
     }
+
+    public function postView()
+    {
+        return $this->hasMany(PostView::class);
+    }
 }
